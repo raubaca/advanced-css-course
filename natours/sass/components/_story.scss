@@ -8,16 +8,37 @@
   box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     position: relative;
     width: 15rem;
     height: 15rem;
-    // Float around shape
     float: left;
-    shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-
     transform: skewX(12deg) translateX(-3rem);
+    border-radius: 50%;
+    overflow: hidden;
+
+    @supports (clip-path: polygon(0 0)) {
+      clip-path: circle(50% at 50% 50%);
+      border-radius: 0;
+    }
+
+    @supports (shape-outside: circle(50% at 50% 50%)) {
+      shape-outside: circle(50% at 50% 50%);
+    }
+
+    @include respond(phone) {
+      transform: skewX(0) translateX(-3rem);
+    }
   }
 
   &__img {
@@ -28,6 +49,10 @@
 
   &__text {
     transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {
