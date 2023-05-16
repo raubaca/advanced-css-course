@@ -1,0 +1,40 @@
+/*Reset*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Core */
+html {
+  color-scheme: light dark;
+}
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: min(70ch, 100% - 2rem);
+  margin-inline: auto;
+
+  font: 1.6rem/1.4 system-ui, sans-serif;
+}
+footer {
+  text-align: center;
+}
